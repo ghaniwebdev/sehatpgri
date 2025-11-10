@@ -53,9 +53,11 @@
         <!-- NIK -->
         <div>
           <label class="block text-gray-700 font-medium">NIK <span class="text-red-500">*</span></label>
-          <input type="text" id="nik" placeholder="Masukkan NIK"
+          <input type="text" id="nik" name="nik" placeholder="16 digit NIK" maxlength="16" pattern="[0-9]{16}"
             class="mt-1 w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
             required />
+          <small style="color: #666; font-size: 12px; display: block; margin-top: 4px;">Masukkan 16 digit NIK sesuai
+            KTP</small>
         </div>
 
         <!-- Nama Lengkap & Pekerjaan -->
@@ -66,9 +68,17 @@
               class="mt-1 w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" />
           </div>
           <div>
-            <label class="block text-gray-700 font-medium">Pekerjaan</label>
-            <input type="text" id="pekerjaan" placeholder="Masukkan pekerjaan"
-              class="mt-1 w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" />
+            <label for="kategori" class="block text-gray-700 font-medium">Kategori Peserta <span
+                class="text-red-500">*</span></label>
+            <select id="kategori" name="kategori"
+              class="mt-1 w-full px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
+              required>
+              <option value="">Pilih kategori</option>
+              <option value="guru">Guru</option>
+              <option value="tenaga-kependidikan">Tenaga Kependidikan</option>
+              <option value="keluarga">Keluarga</option>
+              <option value="umum">Umum</option>
+            </select>
           </div>
         </div>
 
