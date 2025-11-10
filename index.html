@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PGRI Sehat - Registrasi</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
   <link rel="shortcut icon" href="assets/images/98b614213cb75a54eb7bb3c9bd6bedee.png" />
   <link rel="icon" href="assets/images/c395318e9a0605d5c14ad3fc5541d502.png" sizes="192x192" />
   <link rel="apple-touch-icon" href="assets/images/3ef23f566dd3c0cdeebc7a98a1f8643a.png" sizes="180x180" />
@@ -33,7 +34,7 @@
   </header>
 
   <!-- Main Content -->
-  <main class="max-w-7xl mx-auto mt-8 bg-white shadow-sm rounded-xl p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+  <main class="max-w-7xl mx-auto mt-8 bg-white shadow-sm rounded-xl p-6 grid grid-cols-1 md:grid-cols-2 gap-5">
     <!-- Placeholder Image -->
     <div class="w-full bg-gray-100 border rounded-lg flex items-center justify-center">
       <img src="assets/images/1665708501.jpg" alt="[ Area Gambar / Banner Event ]" class="rounded-lg" />
@@ -42,11 +43,9 @@
 
     <!-- Form -->
     <div>
-      <h1 class="">Gerak Jalan Sehat PGRI</h1>
-      <h2 class="text-center text-xl font-semibold text-gray-800 mb-1">
-        Formulir Pendaftaran Peserta
-      </h2>
-      <p class="text-center text-gray-500 mb-6">
+      <h1 class="text-center text-xl font-semibold text-gray-800">JALAN SEHAT PGRI</h1>
+      <h2 class="text-center text-xl font-semibold text-gray-800 mb-1">FORMULIR PENDAFTARAN PESERTA</h2>
+      <p class="text-center text-gray-500 mb-2">
         Silakan lengkapi data diri Anda untuk mendaftar.
       </p>
 
@@ -57,12 +56,12 @@
           <input type="text" id="nik" name="nik" placeholder="16 digit NIK" maxlength="16" pattern="[0-9]{16}"
             class="mt-1 w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
             required />
-          <small style="color: #666; font-size: 12px; display: block; margin-top: 4px;">Masukkan 16 digit NIK sesuai
-            KTP</small>
+          <div class="error-message" id="nik-error">NIK sudah terdaftar!</div>
+          <div class="success-message" id="nik-success">NIK tersedia</div>
         </div>
 
         <!-- Nama Lengkap & Pekerjaan -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div>
             <label class="block text-gray-700 font-medium">Nama Lengkap</label>
             <input type="text" id="nama" placeholder="Masukkan nama lengkap"
@@ -74,17 +73,17 @@
             <select id="kategori" name="kategori"
               class="mt-1 w-full px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
               required>
-              <option value="">Pilih kategori</option>
-              <option value="guru">Guru</option>
-              <option value="tenaga-kependidikan">Tenaga Kependidikan</option>
-              <option value="keluarga">Keluarga</option>
-              <option value="umum">Umum</option>
+              <option value="" disabled selected>-- Pilih Kategori --</option>
+              <option value="Guru">Guru</option>
+              <option value="Tenaga-Kependidikan">Tenaga Kependidikan</option>
+              <option value="Pelajar">Pelajar/Mahasiswa</option>
+              <option value="Umum">Umum</option>
             </select>
           </div>
         </div>
 
         <!-- Instansi & Nomor Telepon -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
           <div>
             <label class="block text-gray-700 font-medium">Instansi</label>
             <input type="text" id="instansi" placeholder="Masukkan instansi"
@@ -100,18 +99,34 @@
         <!-- Alamat -->
         <div>
           <label class="block text-gray-700 font-medium">Alamat</label>
-          <textarea id="alamat" rows="3" placeholder="Tulis alamat lengkap"
+          <textarea id="alamat" rows="1" placeholder="Tulis alamat lengkap"
             class="mt-1 w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
         </div>
 
+        <div class="form-section">
+          <h3>Pernyataan dan Persetujuan</h3>
+          <div class="checkbox-group">
+            <input type="checkbox" id="pernyataan" nama="pernyataan" required />
+            <label for="pernyataan">
+              Saya menyatakan bahwa secara fisik dan mental sehat serta mampu mengikuti kegiatan Gerak Jalan Sehat. 
+                            Saya bersedia mematuhi semua peraturan acara dan melepaskan panitia dari segala tuntutan hukum 
+                            jika terjadi hal-hal yang tidak diinginkan akibat kelalaian saya sendiri.
+            </label>
+          </div>
+        </div>
+
         <!-- Tombol Kirim -->
-        <button type="submit"
+        <button type="submit" id="submitBtn"
           class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-semibold transition">
           Kirim Pendaftaran
         </button>
 
         <!-- Status Indicator -->
         <div class="flex justify-center items-center space-x-2 mt-3">
+          <div class="loading hidden" id="loading">
+            <div class="spinner"></div>
+            <p>Memverifikasi Data . . .</p>
+          </div>
           <span id="status-merah" class="w-3 h-3 bg-red-600 rounded-full"></span>
           <span id="status-hijau" class="w-3 h-3 bg-green-600 rounded-full hidden"></span>
         </div>
@@ -120,7 +135,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="text-center text-gray-500 mt-10 pb-4 text-sm">
+  <footer class="text-center text-white-500 mt-5 pb-4 text-sm">
     © 2025 PGRI – All Rights Reserved.
   </footer>
 
