@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PGRI Sehat</title>
+  <title>Sehat PGRI Bone</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css" />
   <link rel="shortcut icon" href="assets/images/98b614213cb75a54eb7bb3c9bd6bedee.png" />
@@ -19,7 +19,7 @@
       <span class="text-green-700 text-xl">
         <img src="assets/images/3ef23f566dd3c0cdeebc7a98a1f8643a.png" alt="Logo PGRI" width="30" />
       </span>
-      <span class="text-green-700 font-semibold text-lg flex items-center">PGRI Event</span>
+      <span class="text-green-700 font-semibold text-lg flex items-center">SEHAT PGRI</span>
     </div>
 
     <div class="flex items-center space-x-2">
@@ -46,10 +46,10 @@
         </div>
       </div>
       <div class="md:col-span-5">
-        <div class="bg-white px-6 py-2 rounded-lg border shadow-sm">
+        <div class="bg-white px-6 py-4 rounded-lg border shadow-sm">
           <h1 class="text-2xl font-bold text-center">JALAN SEHAT PGRI</h1>
           <h2 class="text-2xl font-semibold text-center">Formulir Pendaftaran Peserta</h2>
-          <p class="text-sm text-gray-500 text-center mb-6">Silahkan lengkapi data diri Anda untuk mendaftar.</p>
+          <p class="text-sm text-gray-500 text-center mb-4">Silahkan lengkapi data diri Anda untuk mendaftar.</p>
 
           <form id="formPendaftaran" class="space-y-4">
             <div>
@@ -67,7 +67,7 @@
                 <label class="text-sm text-gray-600">Nama Lengkap <span class="text-red-500">*</span></label>
                 <input type="text" id="nama" name="nama"
                   class="mt-1 w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
-                  placeholder="Masukkan nama" required>
+                  placeholder="Masukkan Nama" required>
               </div>
               <div>
                 <label class="text-sm text-gray-600">Kategori Peserta <span class="text-red-500">*</span></label>
@@ -75,31 +75,30 @@
                   class="mt-1 w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-all"
                   required>
                   <option value="" disabled selected>-- Pilih Kategori --</option>
-                  <option value="Guru">Guru</option>
-                  <option value="Tenaga-Kependidikan">Tenaga Kependidikan</option>
-                  <option value="Pelajar">Pelajar/Mahasiswa</option>
+                  <option value="Guru/Dosen">Guru/Dosen</option>
+                  <option value="Tenaga Kependidikan">Tenaga Kependidikan</option>
+                  <option value="Pelajar/Mahasiswa">Pelajar/Mahasiswa</option>
                   <option value="Umum">Umum</option>
                 </select>
               </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div>
-                <label class="text-sm text-gray-600">Instansi</label>
+                <label class="text-sm text-gray-600">Instansi/Sekolah/Kampus</label>
                 <input type="text" id="instansi" name="instansi"
                   class="mt-1 w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
-                  placeholder="Masukkan Instansi" required>
-                  <p class="text-sm text-gray-500">Isi "-" untuk Umum</p>
+                  placeholder="Kosongkan untuk umum" required>
               </div>
               <div>
                 <label class="text-sm text-gray-600">Nomor Whatsapp <span class="text-red-500">*</span></label>
                 <input type="tel" id="telepon" name="telepon"
                   class="mt-1 w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
-                  placeholder="Masukkan Nomor Whatsapp" required>
+                  placeholder="Masukkan Nomor WA" required>
               </div>
             </div>
             <div>
               <label class="block text-gray-700 font-medium">Alamat <span class="text-red-500">*</span></label>
-              <textarea id="alamat" name="alamat" rows="1" placeholder="Tulis alamat lengkap"
+              <textarea id="alamat" name="alamat" rows="1" placeholder="Masukkan alamat lengkap"
                 class="mt-1 w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" required></textarea>
             </div>
 
