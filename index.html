@@ -14,29 +14,31 @@
 
 <body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
   <!-- Navbar -->
-  <div class="flex items-center justify-between px-4 py-3 bg-gray-100">
-    <div class="flex items-center space-x-2">
-      <span class="text-green-700 text-xl">
-        <img src="assets/images/3ef23f566dd3c0cdeebc7a98a1f8643a.png" alt="Logo PGRI" width="30" />
-      </span>
-      <span class="text-green-700 font-semibold text-lg flex items-center">SEHAT PGRI</span>
-    </div>
+  <nav id="stickyNav" class="sticky-nav">
+    <div class="flex items-center justify-between px-4 py-3 bg-gray-100">
+      <div class="flex items-center space-x-2">
+        <span class="text-green-700 text-xl">
+          <img src="assets/images/3ef23f566dd3c0cdeebc7a98a1f8643a.png" alt="Logo PGRI" width="30" />
+        </span>
+        <span class="text-green-700 font-semibold text-lg flex items-center">SEHAT PGRI</span>
+      </div>
 
-    <div class="flex items-center space-x-2">
-      <button id="btnPendaftaran"
-        class="bg-green-600 text-white font-medium px-4 py-2 rounded-md hover:bg-green-400 transition-colors duration-150">
-        📝 Daftar Baru
-      </button>
+      <div class="flex items-center space-x-2">
+        <button id="btnPendaftaran"
+          class="bg-green-600 text-white font-medium px-4 py-2 rounded-md hover:bg-green-400 transition-colors duration-150">
+          📝 Daftar Baru
+        </button>
 
-      <button id="btnCekNik"
-        class="bg-white text-green-700 font-medium px-4 py-2 rounded-md border border-green-600 hover:bg-green-400 transition-colors duration-150">
-        🔍 Cek NIK
-      </button>
+        <button id="btnCekNik"
+          class="bg-white text-green-700 font-medium px-4 py-2 rounded-md border border-green-600 hover:bg-green-400 transition-colors duration-150">
+          🔍 Cek NIK
+        </button>
+      </div>
     </div>
-  </div>
+  </nav>
 
   <!-- Main Content -->
-  <main class="flex-1 max-w-6xl mx-auto px-4 py-4">
+  <main class="flex-1 max-w-6xl mx-auto px-4 py-4 main-content">
     <section id="formRegistrasi" class="grid grid-cols-1 md:grid-cols-12 gap-6">
       <div class="md:col-span-6 bg-white rounded-lg border shadow-sm">
         <div id="drop-area"
@@ -57,8 +59,8 @@
               <label class="text-sm text-gray-600">NIK (Nomor Induk Kependudukan) <span
                   class="text-red-500">*</span></label>
               <input type="text" id="nik" name="nik" placeholder="16 digit NIK" maxlength="16" pattern="[0-9]*"
-                class="mt-1 w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" inputmode="numeric"
-                required>
+                class="mt-1 w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+                inputmode="numeric" required>
               <div class="error-message" id="nik-error">NIK sudah terdaftar!</div>
               <div class="success-message" id="nik-success">NIK tersedia</div>
             </div>
@@ -100,7 +102,8 @@
             <div>
               <label class="block text-gray-700 font-medium">Alamat <span class="text-red-500">*</span></label>
               <textarea id="alamat" name="alamat" rows="1" placeholder="Masukkan alamat lengkap"
-                class="mt-1 w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" required></textarea>
+                class="mt-1 w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+                required></textarea>
             </div>
 
             <!-- Tombol Kirim -->
@@ -124,8 +127,10 @@
     <section id="formCekNik" class="hidden">
       <div class="bg-white p-6 rounded-lg border shadow-sm max-w-md mx-auto">
         <h2 class="text-2xl font-semibold text-center mb-4">Cek NIK Peserta</h2>
-        <input id="search-nik" name="search-nik" type="text" placeholder="Masukkan NIK Anda" class="w-full border rounded px-3 py-2 mb-4">
-        <button id="btn-search" class="w-full py-2 bg-green-600 text-white rounded hover:bg-green-700">Cek Sekarang</button>
+        <input id="search-nik" name="search-nik" type="text" placeholder="Masukkan NIK Anda"
+          class="w-full border rounded px-3 py-2 mb-4">
+        <button id="btn-search" class="w-full py-2 bg-green-600 text-white rounded hover:bg-green-700">Cek
+          Sekarang</button>
 
         <div id="result" class="mt-6 text-center text-gray-600"></div>
       </div>

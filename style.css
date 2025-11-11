@@ -131,3 +131,52 @@ body::before {
 .check-nik-section {
   text-align: center;
 }
+
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  
+  /* Efek shadow ketika scroll */
+  transition: box-shadow 0.3s ease;
+}
+
+/* Shadow ketika navbar sticky aktif */
+.sticky-nav.scrolled {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Pastikan konten utama tidak tertutup navbar */
+.main-content {
+  margin-top: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .sticky-nav {
+    position: fixed; /* Untuk mobile, gunakan fixed agar selalu terlihat */
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  /* Tambahkan padding top ke body untuk mengkompensasi fixed navbar */
+  body {
+    padding-top: 20px;
+  }
+  
+  .sticky-nav .flex {
+    padding: 10px 15px;
+  }
+  
+  /* Perbaikan tampilan mobile */
+  .sticky-nav span.text-lg {
+    font-size: 16px;
+  }
+  
+  .sticky-nav button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}

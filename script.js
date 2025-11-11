@@ -176,3 +176,40 @@ btnSearch.addEventListener("click", async () => {
     console.error(err);
   }
 });
+
+// Enhanced sticky effect dengan shadow pada scroll
+document.addEventListener('DOMContentLoaded', function () {
+  const stickyNav = document.getElementById('stickyNav');
+  const mainContent = document.querySelector('.main-content');
+
+  // Untuk mobile: tambahkan padding ke main content
+  if (window.innerWidth <= 768) {
+    const navHeight = stickyNav.offsetHeight;
+    if (mainContent) {
+      mainContent.style.paddingTop = navHeight + 'px';
+    }
+  }
+
+  // Shadow effect pada scroll
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 10) {
+      stickyNav.classList.add('scrolled');
+    } else {
+      stickyNav.classList.remove('scrolled');
+    }
+  });
+
+  // Handle resize
+  window.addEventListener('resize', function () {
+    if (window.innerWidth <= 768) {
+      const navHeight = stickyNav.offsetHeight;
+      if (mainContent) {
+        mainContent.style.paddingTop = navHeight + 'px';
+      }
+    } else {
+      if (mainContent) {
+        mainContent.style.paddingTop = '0';
+      }
+    }
+  });
+});
